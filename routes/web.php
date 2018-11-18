@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PageController@index');
+
+Route::get('/login', 'PageController@login');
+
+Route::get('/profile', 'PageController@profile');
+
+Route::get('/example', function () {
+    return view('tools.templateCall');
 });
+
