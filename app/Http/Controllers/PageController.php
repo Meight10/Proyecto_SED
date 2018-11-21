@@ -25,7 +25,7 @@ class PageController extends Controller
     {
         return view('pages.profile');
     }
-
+        
     /**
      * Show the form for creating a new resource.
      *
