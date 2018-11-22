@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/proyectoSED/public';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -61,12 +61,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(\Illuminate\Http\Request $request)
+    protected function create(array $data)
     {       
         return User::create([
-            'name' => $request->input('first-name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
     }
 }

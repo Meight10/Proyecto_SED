@@ -27,3 +27,7 @@ Route::get('/example', function () {
     return view('tools.templateCall');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

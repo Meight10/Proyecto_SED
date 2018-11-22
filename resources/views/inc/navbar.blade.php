@@ -17,23 +17,37 @@
                 @if (!Auth::guest())
                   <li class="nav-item">
                     <a class="nav-link" href="profile" onclick="scrollToDownload()">
-                        <i class="material-icons">account_circle</i> 
+                        <i class="material-icons">account_circle</i> {{ Auth::user()->name }}
                     </a>
                   </li>                
-                  
-                @endif
-                
 
-                <li class="nav-item">
-                    <a class="nav-link" href="login" onclick="scrollToDownload()">
-                        <i class="material-icons">account_circle</i> Log In
-                    </a>
-                </li>
-                <li class="nav-item">
+                  
+                    <a href="{{ route('logout') }}" style="color:white;" 
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    <i class="material-icons">account_circle</i> Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>         
+                @else
+                    <li class="nav-item">
+                            <a class="nav-link" href="login" onclick="scrollToDownload()">
+                                <i class="material-icons">account_circle</i> Log In
+                            </a>
+                    </li>      
+                    <li class="nav-item">
                     <a class="nav-link" href="register" onclick="scrollToDownload()">
                         <i class="material-icons">account_circle</i> Register
                     </a>
-                </li>
+                </li>            
+                @endif
+                
+
+                
+
+                
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href=""  data-original-title="Follow us on Twitter">
                         <i class="fa fa-twitter"></i>
