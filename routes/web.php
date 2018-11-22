@@ -17,6 +17,12 @@ Route::get('/login', 'PageController@login');
 
 Route::get('/profile', 'PageController@profile');
 
+Route::get('/register', 'PageController@register');
+
+Route::post('/registerUser', 'Auth\RegisterController@create');
+
+
+
 Route::get('/example', function () {
     return view('tools.templateCall');
 });

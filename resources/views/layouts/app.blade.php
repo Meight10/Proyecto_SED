@@ -18,5 +18,6 @@
     <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
     @include('inc.navbar')
+    
     @yield('content')
 </html>

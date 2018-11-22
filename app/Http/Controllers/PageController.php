@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+
 class PageController extends Controller
 {
     /**
@@ -21,11 +23,32 @@ class PageController extends Controller
         return view('pages.login');
     }
 
+    public function register()
+    {
+        return view('pages.register');
+    }
+
+    public function registerUser(Request $request)
+    {
+        $this->validate($request, [
+            'first-name' => 'required',
+            'email' => 'required'
+        ]);
+
+        $post = new Post;
+        $post->first_name = $request->input('first-name');
+        $post->email = $request->input('first-name');
+        $post->save();
+
+
+        return redirect('/login')->with('success', 'Registrado');
+    }
+
     public function profile()
     {
         return view('pages.profile');
     }
-        
+
     /**
      * Show the form for creating a new resource.
      *

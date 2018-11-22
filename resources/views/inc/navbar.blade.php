@@ -13,14 +13,25 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
+                
+                @if (!Auth::guest())
+                  <li class="nav-item">
                     <a class="nav-link" href="profile" onclick="scrollToDownload()">
-                        <i class="material-icons">account_circle</i> Profile
+                        <i class="material-icons">account_circle</i> 
                     </a>
-                </li>
+                  </li>                
+                  
+                @endif
+                
+
                 <li class="nav-item">
                     <a class="nav-link" href="login" onclick="scrollToDownload()">
                         <i class="material-icons">account_circle</i> Log In
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register" onclick="scrollToDownload()">
+                        <i class="material-icons">account_circle</i> Register
                     </a>
                 </li>
                 <li class="nav-item">
