@@ -15,7 +15,7 @@ Route::get('/', 'PageController@index');
 
 Route::get('/login', 'PageController@login');
 
-Route::get('/profile', 'PageController@profile');
+Route::get('/profile', 'PageController@profile')->middleware('auth');
 
 Route::get('/register', 'PageController@register');
 
