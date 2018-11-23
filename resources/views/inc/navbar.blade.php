@@ -14,13 +14,12 @@
             <ul class="navbar-nav ml-auto">
 
                 
-                @if (!Auth::guest())
+                @if (Auth::check())
                   <li class="nav-item">
                     <a class="nav-link" href="profile" onclick="scrollToDownload()">
                         <i class="material-icons">account_circle</i> {{ Auth::user()->name }}
                     </a>
                   </li>                
-
                   
                     <a href="{{ route('logout') }}" style="color:white;" 
                                     onclick="event.preventDefault();
@@ -32,17 +31,15 @@
                                     {{ csrf_field() }}
                                 </form>         
                 @else
+
                     <li class="nav-item">
-                            <a class="nav-link" href="login" onclick="scrollToDownload()">
-                                <i class="material-icons">account_circle</i> Log In
+                            <a class="nav-link" href="{{ route('login') }}" onclick="scrollToDownload()">
+                                <i class="material-icons">account_circle</i> Log In 
                             </a>
                     </li>      
-                    <li class="nav-item">
-                    <a class="nav-link" href="register" onclick="scrollToDownload()">
-                        <i class="material-icons">account_circle</i> Register
-                    </a>
-                </li>            
+                              
                 @endif
+
                 
 
                 

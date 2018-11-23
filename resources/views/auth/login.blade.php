@@ -9,7 +9,7 @@
                     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                         <div class="card card-login">
                             <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                            @csrf   
                                 <div class="card-header card-header-primary text-center">
                                     <h4 class="card-title">Login</h4>
                                     <div class="social-line">

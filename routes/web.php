@@ -13,21 +13,24 @@
 
 Route::get('/', 'PageController@index');
 
-Route::get('/login', 'PageController@login');
-
+Route::get('/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
+	
 Route::get('/profile', 'PageController@profile')->middleware('auth');
 
 Route::get('/register', 'PageController@register');
 
 Route::post('/registerUser', 'Auth\RegisterController@create');
 
-
-
 Route::get('/example', function () {
     return view('tools.templateCall');
 });
 
 
-Auth::routes();
+Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
+
+
+Route::get( 'http://localhost/ProyectoSED/public/', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
